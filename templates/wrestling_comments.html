@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    {% for com in comments %}
+    <div class = "comm_container">
+        <div class="comm_card">
+            <h4 class="comm_name">{{com.Name}} {{com.Surname}}      sport:{{com.Sport}}</h4>
+            <p>{{com.Comment}}</p>
+            <div class="comm_foot">
+                <div><button><a href="{% url 'comment_update' com.id %}">Update comment</a></button></div>
+                <div><button><a href="{% url 'comment_delete' com.id %}">Delete comment</a></button></div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
+
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    }
+
+    .container{
+    width: min(90%, 1140px);
+    margin: 3rem auto;
+    }
+
+    .comm_container{
+    position: relative;
+    padding:10px;
+    }
+
+
+    .comm_card{
+    padding:20px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: .5rem;
+    min-width: 100%;
+    }
+
+    .comm_card h4, .comm_card p{
+    margin-bottom: 1rem;
+    }
+
+    .comm_foot{
+    display:flex;
+    font-size: .85rem;
+    opacity: .6;
+    gap: 30px;
+    justify-content: flex-end;
+    align-items: center;
+    }
+</style>

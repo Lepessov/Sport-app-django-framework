@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex-container">
+        {% for champion in champions %}
+        <div class="container">
+            <div class="card">
+                {{champion.Name}}
+                {{champion.Surname}}
+                <img src="{{champion.image}}" alt="" style="width: 100px; height: 100px;">
+
+                <div class="text"> {{champion.description}}</div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
+
+<style>
+    body{
+     margin:0;
+     padding:0;
+     background-color: #eeeeec;
+
+    }
+
+    .flex-container{
+    display: flex;
+    flex-direction: row;
+    padding: 1%;
+    }
+
+    .container{
+     width:90vw;
+     height:100vh;
+     display:flex;
+     justify-content:center;
+     alighn-items:center;
+    }
+
+    .card{
+    height:400px;
+    width:300px;
+    border-radius:5px;
+    box-shadow: 5px, 5px, 20px, grey;
+    background-color: #fdfeff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    }
+
+    img{
+    margin-top:30px;
+    --width:130px;
+    --height:130px;
+    box-shadow: 5px, 5px, 20px, grey;
+
+    }
+
+    .text{
+    height:200px;
+    overflow:hidden;
+    }
+
+</style>

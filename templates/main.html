@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/main.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        {% include 'navbar.html' %}
+    </header>
+    <body>
+        <div class="flex-container">
+            {% for sport in sports%}
+
+                <div class="container">
+                    <div class="column">
+                        <div class="post-module">
+                            <div class = "thumbnail">
+                                <a href="{{football_comments}}">
+                                    <img src={{sport.image}} alt="">
+                                </a>
+                            </div>
+
+                            <div class="post-content">
+                                <h2 class="title">{{sport.title}}</h2>
+                                <p class="sub_title">{{sport.describe}}</p>
+                                <button><a href="{% url 'comment' %}"> Add comments</a></button> </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </body>
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+</body>
+</html>
